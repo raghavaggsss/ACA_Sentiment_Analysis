@@ -25,7 +25,7 @@
 <h4>Udacity Deep Learning</h4> - https://in.udacity.com/course/deep-learning--ud730 (Complete with assignments)
 
 - iPython Notebook and Tensorflow
-- Setting up CUDA NN 
+- Setting up cuDNN 
 - Logistic Regression using SGD
 - ReLU, L2 Regularization, Dropout
 - CNN, Max pooling, Inception
