@@ -1,0 +1,97 @@
+* _ holds the value of whatever was printed last
+
+>>> print(r'C:\some\name')  # note the r before the quote
+C:\some\name
+
+>>> # clear the list by replacing all the elements with an empty list
+>>> letters[:] = []
+
+It is possible to nest lists (create lists containing other lists), for example:
+>>> a = ['a', 'b', 'c']
+>>> n = [1, 2, 3]
+>>> x = [a, n]
+>>> x
+[['a', 'b', 'c'], [1, 2, 3]]
+>>> x[0]
+['a', 'b', 'c']
+>>> x[0][1]
+'b'
+
+multiple assignment: the variables a and b simultaneously get the new values 0 and 1. On the last line this is used again, demonstrating that the expressions on the right-hand side are all evaluated first before any of the assignments take place. The right-hand side expressions are evaluated from the left to the right.
+
+
+The keyword argument end can be used to avoid the newline after the output, or end the output with a different string:
+eg- 
+>>> b = 0
+>>> while b < 10 :
+...     print(b,end='')
+...     b=b+2
+... 
+02468>>> 
+
+eg2-
+>>> b = 0
+>>> while b < 10 :
+...     print(b,end='r')
+...     b=b+2
+... 
+0r2r4r6r8r>>> 
+
+good practice is to use a copy of the list like the following
+>> for w in words[:]:  # Loop over a slice copy of the entire list.
+...     if len(w) > 6:
+...         words.insert(0, w)
+...
+>>> words
+['defenestrate', 'cat', 'window', 'defenestrate']
+With for w in words:, the example would attempt to create an infinite list, inserting defenestrate over and over again.
+
+
+A strange thing happens if you just print a range:
+>>>
+
+>>> print(range(10))
+range(0, 10)
+
+In many ways the object returned by range() behaves as if it is a list, but in fact it isn’t. It is an object which returns the successive items of the desired sequence when you iterate over it, but it doesn’t really make the list, thus saving space.
+
+We say such an object is iterable, that is, suitable as a target for functions and constructs that expect something from which they can obtain successive items until the supply is exhausted. We have seen that the for statement is such an iterator. The function list() is another; it creates lists from iterables:
+>>>
+
+>>> list(range(5))
+[0, 1, 2, 3, 4
+
+
+
+Important warning: The default value is evaluated only once. This makes a difference when the default is a mutable object such as a list, dictionary, or instances of most classes. For example, the following function accumulates the arguments passed to it on subsequent calls:
+
+def f(a, L=[]):
+    L.append(a)
+    return L
+
+print(f(1))
+print(f(2))
+print(f(3))
+This will print
+
+[1]
+[1, 2]
+[1, 2, 3]
+If you don’t want the default to be shared between subsequent calls, you can write the function like this instead:
+
+def f(a, L=None):
+    if L is None:
+        L = []
+    L.append(a)
+    return L
+    
+    
+When a final formal parameter of the form **name is present, it receives a dictionary (see Mapping Types — dict) containing all keyword arguments except for those corresponding to a formal parameter. This may be combined with a formal parameter of the form *name (described in the next subsection) which receives a tuple containing the positional arguments beyond the formal parameter list. (*name must occur before **name.)    
+
+
+
+
+***To output all commands in python-cli to a file
+import readline
+readline.write_history_file('/home/ahj/history')
+
